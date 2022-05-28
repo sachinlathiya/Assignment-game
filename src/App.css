@@ -1,0 +1,171 @@
+.Apppwa {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  padding: 1rem;
+}
+
+:root {
+  --in-eqaution: 60, 49%;
+  --at-location: 139, 43%;
+  --not-in-equation: 0, 0%;
+}
+/*board css*/
+.board {
+  display: grid;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 700px;
+  min-width: 320px;
+  padding: 1rem;
+}
+
+.attempt {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
+  grid-auto-columns: 35px;
+  grid-auto-rows: 35px;
+
+  gap: 0.3rem;
+
+  position: relative;
+}
+
+.attempt.current::before {
+  content: '>';
+  color: rgb(11, 173, 242);
+  position: absolute;
+  left: -20px;
+}
+/*character css*/
+.char {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  border: solid 1px black;
+}
+
+.char.current {
+  border-color: rgb(11, 173, 242);
+}
+
+.char.in-eqaution {
+  background-color: hsl(var(--in-eqaution), 50%);
+  color: white;
+  border-color: hsl(var(--in-eqaution), 30%);
+}
+
+.char.at-location {
+  background-color: hsl(var(--at-location), 50%);
+  color: white;
+  border-color: hsl(var(--at-location), 30%);
+}
+
+.char.not-in-equation {
+  background-color: hsl(var(--not-in-equation), 50%);
+  color: white;
+  border-color: hsl(var(--not-in-equation), 30%);
+}
+
+.char.at-location,
+.char.in-eqaution,
+.char.not-in-equation {
+  animation: turn 400ms linear;
+}
+
+
+
+.error {
+  color: crimson;
+  padding-bottom: 1rem;
+  height: 30px;
+}
+
+.keyboard {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 35px;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+
+/*key css*/
+.key {
+  aspect-ratio: 1/1;
+  background: rgb(211, 211, 211);
+  color: #333;
+  border: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+}
+
+.key.in-eqaution,
+.key.at-location,
+.key.not-in-equation {
+  color: white;
+}
+
+.key:hover {
+  filter: brightness(1.1);
+}
+
+.key:active {
+  filter: brightness(0.9);
+}
+
+.key.delete {
+  margin-right: 0.2rem;
+}
+
+.key.not-in-equation {
+  background-color: rgb(132, 132, 132);
+}
+
+.key.in-eqaution {
+  background-color: rgb(185, 185, 65);
+}
+
+.key.at-location {
+  background-color: rgb(61, 151, 90);
+}
+
+.key.enter,
+.key.delete {
+  height: 35px;
+  padding: 0 10px;
+}
+.infobox{
+  display: grid;
+  justify-content: center;
+  gap: 0.4rem;
+  max-width: 700px;
+  min-width: 320px;
+  padding: 1rem;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
